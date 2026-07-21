@@ -1,5 +1,5 @@
 import "../styles/auth.css";
-import { SignInButton } from "@clerk/react";
+import { SignInButton } from "@clerk/clerk-react";
 
 const AuthPage = () => {
   return (
@@ -7,16 +7,15 @@ const AuthPage = () => {
       <div className="auth-left">
         <div className="auth-hero">
           <div className="brand-container">
-            <img src="/logo.png" alt="Slap" className="brand-logo" />
-            <span className="brand-name">Slap</span>
+            <img src="/logo.png" alt="SyncSpace" className="brand-logo" />
+            <span className="brand-name">SyncSpace</span>
           </div>
 
           <h1 className="hero-title">Where Work Happens ✨</h1>
 
           <p className="hero-subtitle">
-            Connect with your team instantly through secure, real-time
-            messaging. Experience seamless collaboration with powerful features
-            designed for modern teams.
+            Connect with your team instantly through secure, real-time messaging. Experience
+            seamless collaboration with powerful features designed for modern teams.
           </p>
 
           <div className="features-list">
@@ -38,7 +37,7 @@ const AuthPage = () => {
 
           <SignInButton mode="modal">
             <button className="cta-button">
-              Get Started with Slap
+              Get Started with SyncSpace
               <span className="button-arrow">→</span>
             </button>
           </SignInButton>
@@ -47,11 +46,7 @@ const AuthPage = () => {
 
       <div className="auth-right">
         <div className="auth-image-container">
-          <img
-            src="/auth-i.png"
-            alt="Team collaboration"
-            className="auth-image"
-          />
+          <img src="/auth-i.png" alt="Team collaboration" className="auth-image" />
           <div className="image-overlay"></div>
         </div>
       </div>
