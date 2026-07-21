@@ -6,25 +6,30 @@ import { clerkMiddleware } from "@clerk/express";
 import { functions, inngest } from "./config/inngest.js";
 import { serve } from "inngest/express";
 import chatRoutes from "./routes/chat.route.js";
-
 import cors from "cors";
-
 import * as Sentry from "@sentry/node";
 
 const app = express();
 
-
-
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://syncspace-frontend-tau.vercel.app",
+];
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
   })
 );
 
 app.use(express.json());
-app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
+
 app.use(clerkMiddleware()); // req.auth will be available in the request object
 
 app.get("/debug-sentry", (req, res) => {
